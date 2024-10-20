@@ -1,0 +1,17 @@
+# config/ridgepole.yml
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: password
+  database: app_development
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: password
+  database: app_test
