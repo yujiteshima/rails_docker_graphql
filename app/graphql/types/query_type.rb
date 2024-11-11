@@ -28,7 +28,16 @@ module Types
       "Hello World!"
     end
 
+    field :user, Types::UserType, null: false do # GraphQLでのfield名、GraphQL Type、必須かどうか
+      argument :id, ID, required: true # GraphQLでの引数、GraphQLでの型、必須かどうか
+    end
+
+
     field :users, [Types::UserType], null: false, description: "全てのユーザーを取得します"
+
+    def user(id:) # fieldが指定されたとき、どのようにデータを取得するかをfield名と同盟メソッドで実装する
+      User.find(id)
+    end
 
     def users
       User.all
